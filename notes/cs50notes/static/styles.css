@@ -1,0 +1,367 @@
+/* Define Color Variables */
+:root {
+  --primary-color:#A51C30 ; /* Define your primary color */
+  --secondary-color: #E5DCCF; /* Define your secondary color */
+  --accent-color: #BF4141; /* Define an accent color */
+  --highlight-color:#BF9775; /* Backgrounds and borders */
+  --text-color:#ffffff ; /* Define a text color */
+  --code-color:#00FF00; /* Code snippets */
+  --link-color:#BF4141; /* Links */
+}
+
+/* Navbar: Anime Signature
+Note title: MangaTemple
+Note text: Open Sans
+Btns: Roboto */
+
+/* Define 'Spicy Potatos' Font */
+@font-face {
+  font-family: 'Pokemon Solid'; 
+  src: url('/static/fonts/Pokemon%20Solid.ttf');
+}
+
+
+
+
+@font-face {
+  font-family: 'Family';
+  src: url('/static/fonts/Family.ttf');
+}
+
+@font-face {
+  font-family: 'Manga Temple';
+  src: url('/static/fonts/mangatb.ttf');
+}
+
+@font-face {
+  font-family: 'Open Sans'; 
+  src: url('/static/fonts/Open%20Sans.ttf');
+}
+
+
+body {
+  height: 100vh;
+  /* background-image: url('/static/images/landing-bg2.png'); */
+
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: 'Spicy Potatos', Arial, sans-serif; 
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+
+}
+
+
+.breadcrumb {
+  height: 100px; /* Set the height to 70px */
+  text-align: left;
+  margin: 20px;
+  padding: 25px;
+
+}
+
+
+
+.breadcrumb ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.breadcrumb li {
+  display: inline;
+  margin-right: 5px;
+  font-size: 25px;
+  padding: 20px;
+
+
+}
+
+.breadcrumb li:not(:last-child)::after {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: var(--link-color);
+
+}
+
+
+.breadcrumb a {
+  font-family: 'Family';  
+  background-size: 250px 500px; /* Set the width and height you prefer */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 50px ; /* Add padding to create space around the text */
+  text-decoration: none;
+  color: black;
+  font-size: 40px;
+
+}
+
+
+
+.breadcrumb a:hover {
+  text-decoration: underline;  
+}
+
+/* Style the image with courses */
+
+
+.nav-link.clicked {
+  color: var(--link-color); 
+  border-bottom: 2px solid var(--primary-color); 
+}
+
+.container {
+  font-family: 'Manga Temple';
+  background-image: url('/static/images/landing-bg2.png');
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  width: 100%;
+  height: 1300px;
+}
+
+.text-container {
+  font-family: 'Manga Temple';
+
+  color:var(--text-color);
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  position: relative;
+  margin-top: 10px;
+}
+
+.text1 {
+  font-family: 'Manga Temple';
+  font-size: 1em;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+}
+
+.text2 {
+  font-family: 'Open Sans';
+
+  color: var(--text-color);
+  font-size: 1em;
+  letter-spacing: 3px;
+
+}
+
+/* Style for the container holding all cards */
+.card-container {
+  background-image: url('/static/images/landing-bg2.png');
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+
+}
+
+
+
+/* Style for card titles and bodies */
+.card-title {
+font-family:'Manga Temple' ;
+    font-weight: bold;
+}
+
+.card-body {
+    margin-top: 5px;
+}
+
+/* Style for the link */
+.link {
+font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color:var(--accent-color); /* Change to your desired link color */
+}
+
+/* Style for when there are no courses available */
+li {
+color: #000000;
+    font-style: italic;
+}
+
+
+.notes-container {
+  /* background-image: url('/static/images/landing-bg2.png'); */
+  background-position: center; 
+  background-repeat: no-repeat; 
+
+  width: auto;
+ 
+}
+
+/* Add this CSS to position the image in the top-right corner */
+.card {
+  font-family: 'Open Sans'; 
+  position: relative; 
+  margin-left: 50px;
+  color: #000000;
+  border: 2px solid #5b1818;
+  border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    width: 60%; /* Adjust this to control card width */
+    /* Add more styling as you like */
+    
+    /* Add box shadow here */
+    box-shadow: 3px 3px 5px 0 rgba(106, 106, 106, 0.3);
+  }
+
+.card-image {
+  position: fixed; /* Absolute positioning for the image */
+  top: 800px;
+  right: 100px; /* Adjust the right position as needed */
+  width: 200px; /* Adjust the width of the image */
+  height: 200px; /* Adjust the height of the image */
+  border-radius: 50%; 
+}
+ p{
+  font-size: 2,7em;
+
+ }
+ 
+/* Add a background image to the button */
+.copy-btn {
+  font-family: 'Roboto'; 
+  background-image: url('/static/images/copy-btn.svg'); /* Replace 'your-image-url.png' with your image URL */
+  background-size: cover; /* Adjust this to control how the image covers the button */
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: left;
+  color: #000000; /* Text color */
+  border:2px var(--accent-color); 
+  cursor: pointer; /* Add a pointer cursor on hover */
+  width: 250px;
+  height: 100px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+/* Style the button as needed */
+.copy-btn:hover {
+  /* Add hover styles, like changing background color or opacity */
+  background-color: #000000;
+  color: var(--text-color);
+}
+
+
+
+
+.btn-text {
+  font-family: 'Roboto'; 
+
+}
+
+/* Add a background image to the button */
+.youtube-link {
+  font-family: 'Roboto'; 
+  background-image: url('/static/images/youtube-link.svg'); /* Replace 'your-image-url.png' with your image URL */
+  background-size: cover; /* Adjust this to control how the image covers the button */
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: left;
+  background-color: #000000;
+  color: #ffffff; /* Text color */
+  border:2px var(--accent-color); 
+  cursor: pointer; /* Add a pointer cursor on hover */
+  width: 260px;
+  height: 80px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+/* Style the button as needed */
+.youtube-link:hover {
+  /* Add hover styles, like changing background color or opacity */
+  background-color: var(--primary-color);
+  color:#000000;
+}
+
+
+
+
+.btn-text {
+  font-family: 'Roboto'; 
+
+}
+
+
+/* Style the container holding the cards */
+.notes-container {
+  font-family:'Open Sans' ;
+
+  display: flex;
+  justify-content: space-between; /* This puts the cards on each side */
+}
+
+
+
+/* Style the card image */
+.card-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Style the note title */
+.note-title {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+
+/* Style the detail note */
+
+/* Style the container holding the cards */
+.notes-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Create a grid layout with two columns */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 0.3fr; /* Two columns of equal width */
+  gap: 20px; /* Gap between columns */
+}
+
+/* Style each individual card */
+.card-1, .card-2 {
+  border: 1px solid #ccc;
+  border-radius: 10px; 
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Style the card image */
+.card-image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Style the note title */
+.note-title {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+
+
+
+
+/* Style the course list items */
+ul li {
+color: #000000;
+  margin: 5px 0;
+}
+
+
+
+.link:hover {
+  text-decoration: underline;
+}

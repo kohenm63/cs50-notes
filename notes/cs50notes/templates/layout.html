@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <title>{% block title %}Just Ask David 🌱{% endblock %}</title>
+
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+    
+
+</head>
+<body>
+    <header>
+     
+        <nav class="breadcrumb">
+            <ul >
+              <li>
+                <a href="{% url 'home' %}">Home</a>
+              </li>
+              <li>
+                <a href="{% url 'course-list' %}">Courses</a>
+              </li>
+            </ul>
+          </nav>
+          
+    </header>
+
+    <main>
+        {% block content %}
+        <div class="container">
+            <div class="text-container">
+              <span class="text1">Wellcome to CS50 Notes</span>
+              <span class="text2">
+              
+                <ul class="course-list">
+                    <li> Introduction to Programming with Python </li>
+                    <li> Web Development with Django</li>
+                    <li> Introduction to AI</li>
+                    <!-- Add more courses as needed -->
+                </ul>
+              
+              </span>
+            </div>
+          </div>
+          
+          
+     
+        
+          
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ year }} MR</p>
+    </footer>
+</body>
+</html>

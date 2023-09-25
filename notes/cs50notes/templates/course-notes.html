@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+
+{% load custom_filters %}
+
+
+
+{% block title %}Lecture Notes for {{ course.name }} {% endblock %}
+{% block header %}Lecture Notes{% endblock %}
+
+
+{% block content %}
+<div class="card">
+    <h1>Lecture Notes for {{ course.name }}</h1>
+    
+    <ul>
+        {% if notes %}
+            {% for note in notes %}
+            <li><a href="{% url 'lecture-note-detail' course.id note.id %}">{{ note.title }}</a></li>
+            {% endfor %}
+        {% else %}
+            <li>No lecture notes available for this course. 📚</li>
+        {% endif %}
+    </ul>
+</div>
+
+  
+<a href="{% url 'home' %}">Back to Home</a>
+
+{% endblock %}

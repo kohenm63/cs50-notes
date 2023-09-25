@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% load static %}
+
+{% load custom_filters %}
+
+
+
+{% block title %}Lecture Notes for {{ course.name }} {% endblock %}
+{% block header %}Lecture Notes{% endblock %}
+
+
+{% block content %}
+<div class="card">
+  <h1>{{ note.title }}</h1>
+  {% if content_empty %}
+      <p>Sorry, this lecture note has no content available.</p>
+  {% else %}
+      <p>{{ note.content |add_line_breaks|decode_html_entities|remove_html_tags|remove_spaces }}</p>
+      {% if note.web_link %}
+      <a href="{{ note.web_link }}" target="_blank">Youtube Video</a>
+  {% else %}
+      {{ note.title }}
+  {% endif %}
+  
+
+  {% endif %}
+  <a href="{% url 'lecture-note-list' course.id %}">Back to Lecture Notes</a>
+</div>
+
+   
+{% endblock %}
