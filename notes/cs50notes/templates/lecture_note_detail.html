@@ -1,6 +1,8 @@
 {% extends 'layout.html' %}
 
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
 
 {% load custom_filters %}
 
@@ -11,22 +13,90 @@
 
 
 {% block content %}
+<div class="card-container">
 <div class="card">
+
+  {% if lecture.image %}
+  <div class="image">
+
+  <img src="{{ lecture.lecture_images.url }}" alt="{{ lecture.title }}" class="image">
+  </div>
+{% else %}
+  <!-- Display a placeholder image or message if no image is available -->
+  <div class="image">
+
+  <img src="{% static 'images/logo3.png' %}" alt="No Image Available" class="image">
+  </div>
+  <!-- You can replace 'images/placeholder.png' with your desired placeholder image path -->
+{% endif %}
+{% if "Python Documentation" in note.title %}
+    <a class="a-link" href="{% url 'python-docs' %}">View Python Documentation Snippets 🪄</a>
+{% endif %}
   <h1>{{ note.title }}</h1>
+  
   {% if content_empty %}
       <p>Sorry, this lecture note has no content available.</p>
+      {% comment %} remove_html_tags | format_code | decode_html_entities | linebreaks  {% endcomment %}
   {% else %}
-      <p>{{ note.content |add_line_breaks|decode_html_entities|remove_html_tags|remove_spaces }}</p>
-      {% if note.web_link %}
-      <a href="{{ note.web_link }}" target="_blank">Youtube Video</a>
+  <p id="lecture-content">{{ note.content | style_code |  decode_html_entities | remove_html_tags |  linebreaks   }}</p>  
+  
+  <div>
+    <button class="copy-btn" id="copy-button">Copy note</button>
+  </div>
+  
+  <br>
+  {% if note.web_link %}
+  <button class="youtube-link" onclick="window.location.href='{{ lecture_note.web_link }}'">
+    <span class="btn-text">Youtube Video </span>
+  </button> 
+  
+
   {% else %}
       {{ note.title }}
   {% endif %}
   
 
   {% endif %}
-  <a href="{% url 'lecture-note-list' course.id %}">Back to Lecture Notes</a>
+
+  
+</div>
+<a class = "a-link" href="{% url 'lecture-note-list' course.id %}">Back to Lecture Notes</a>
+
 </div>
 
-   
+
+<script>
+  // JavaScript to copy and paste text with filters
+document.getElementById("copy-button").addEventListener("click", function () {
+// Get the content element by its ID
+const contentElement = document.getElementById('lecture-content');
+// Extract the original content without filters
+const originalContent = contentElement.textContent;
+// Copy the original content to the clipboard
+navigator.clipboard.writeText(originalContent).then(function () {
+  // Show an alert on success
+  alert("Note copied to clipboard! 🎉 ");
+}).catch(function (error) {
+  // Handle any errors
+  console.error('Unable to copy: ', error);
+});
+});
+// JavaScript to apply filters when pasting
+document.addEventListener('paste', function (e) {
+// Get the pasted text
+const pastedText = e.clipboardData.getData('text/plain');
+// Apply the filters to the pasted text
+const filteredText = pastedText
+  .replace(/<[^>]*>/g, '') // Remove HTML tags
+  .replace(/&lt;/g, '<') // Replace HTML entity &lt; with <
+  .replace(/&gt;/g, '>'); // Replace HTML entity &gt; with >
+// Prevent the default paste behavior
+e.preventDefault();
+// Insert the filtered text into the content element
+const contentElement = document.getElementById('lecture-content');
+contentElement.textContent = filteredText;
+});
+</script>
+
+
 {% endblock %}

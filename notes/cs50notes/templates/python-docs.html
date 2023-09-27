@@ -1,0 +1,22 @@
+{% extends 'layout.html' %} 
+
+{% block content %}
+<div class="search-container">
+            <div class="card">
+                <h1>Python Documentation Code Snippets</h1>
+                {% if code_snippets %}
+                    <ul>
+                        {% for code_snippet in code_snippets %}
+                            <li>
+                                <pre>{{ code_snippet }}</pre>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No code snippets found.</p>
+                {% endif %}
+            </div>
+        </div>
+
+
+{% endblock %}

@@ -14,6 +14,8 @@ class Course (models.Model):
  # Define a LectureNote model to store individual lecture notes.
 class LectureNote(models.Model):
     title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='lecture_images/', null=True, blank=True)
+
     content = RichTextField(blank = True, null = True )
     category = models.ForeignKey(Course, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

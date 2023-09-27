@@ -12,21 +12,22 @@
 
 
 {% block content %}
+<div class="course-notes-list">
 <div class="card">
     <h1>Lecture Notes for {{ course.name }}</h1>
     
     <ul>
         {% if notes %}
             {% for note in notes %}
-            <li><a href="{% url 'lecture-note-detail' course.id note.id %}">{{ note.title }}</a></li>
+            <li class="a-link"><a class="a-link" href="{% url 'lecture-note-detail' course.id note.id %}">{{ note.title }}</a></li>
             {% endfor %}
         {% else %}
-            <li>No lecture notes available for this course. 📚</li>
+            <li >No lecture notes available for this course. 📚</li>
         {% endif %}
     </ul>
 </div>
 
   
-<a href="{% url 'home' %}">Back to Home</a>
-
+<a class="a-link" href="{% url 'home' %}">Back to Home</a>
+</div>
 {% endblock %}

@@ -4,14 +4,16 @@
 {% block header %}{% endblock %}
 
 {% block content %}
+<div class="courses-container">
 
 <ul>
     {% for course in courses %}
-    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">{{ course.name }}</div>
-        <div class="card-body">
-          <h4 class="card-title">{{ course.description }}</h4>
-          <a class = "nav_link" href="{% url 'lecture-note-list' course.id %}">View List of Lecture Notes </a>   
+    
+    <div class="card">
+        <div class="course-title">{{ course.name }}</div>
+        <div >
+          <h4 class="courses-card-title">{{ course.description }}</h4>
+          <a class = "a-link" href="{% url 'lecture-note-list' course.id %}">View List of Lecture Notes </a>   
           
           </div>
       </div>
@@ -19,8 +21,7 @@
         <li>No courses available</li>
     {% endfor %}
 </ul>
-<p></p>  <!-- Add this line for the link -->
-
+</div>
 
 
   

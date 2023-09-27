@@ -13,16 +13,24 @@
 <body>
     <header>
      
-        <nav class="breadcrumb">
-            <ul >
-              <li>
-                <a href="{% url 'home' %}">Home</a>
-              </li>
-              <li>
-                <a href="{% url 'course-list' %}">Courses</a>
-              </li>
-            </ul>
-          </nav>
+      <nav class="breadcrumb">
+        <ul>
+          <li>
+            <a href="{% url 'home' %}">Home</a>
+          </li>
+          <li>
+            <a href="{% url 'course-list' %}">Courses</a>
+          </li>
+         
+        </ul>
+        <div class="search-bar">
+          <form method="GET" action="{% url 'search_results' %}">
+            <input type="text" name="query" placeholder="Search...">
+            <button type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      
           
     </header>
 
