@@ -1,6 +1,5 @@
 # cs50-notes
 
-Absolutely, Mila! Writing a clear and informative README is crucial for your Django app. Here's a basic template for your app's README:
 
 # CS50-notes 
 
