@@ -19,7 +19,7 @@ def decode_html_entities(value):
 @register.filter
 def remove_html_tags(value):
     # Use a regular expression to remove all HTML tags
-    return re.sub(r'<[^>]*>', '', value)
+    return re.sub(r'<[^>]*>|\Â¶|\â', '', value)
     
     
     

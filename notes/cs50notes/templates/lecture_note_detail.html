@@ -31,11 +31,13 @@
 {% endif %}
 {% if "Python Documentation" in note.title %}
     <a class="a-link" href="{% url 'python-docs' %}">View Python Documentation Snippets 🪄</a>
+    
 {% endif %}
   <h1>{{ note.title }}</h1>
   
   {% if content_empty %}
       <p>Sorry, this lecture note has no content available.</p>
+      
       {% comment %} remove_html_tags | format_code | decode_html_entities | linebreaks  {% endcomment %}
   {% else %}
   <p id="lecture-content">{{ note.content | style_code |  decode_html_entities | remove_html_tags |  linebreaks   }}</p>  
@@ -60,7 +62,6 @@
 
   
 </div>
-<a class = "a-link" href="{% url 'lecture-note-list' course.id %}">Back to Lecture Notes</a>
 
 </div>
 

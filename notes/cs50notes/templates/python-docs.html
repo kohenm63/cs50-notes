@@ -1,21 +1,26 @@
 {% extends 'layout.html' %} 
+{% load custom_filters %}
+
 
 {% block content %}
+
 <div class="search-container">
             <div class="card">
-                <h1>Python Documentation Code Snippets</h1>
+                <h1>Python Documentation: Glossary </h1>
                 {% if code_snippets %}
                     <ul>
                         {% for code_snippet in code_snippets %}
                             <li>
-                                <pre>{{ code_snippet }}</pre>
+                                <pre>{{ code_snippet | remove_html_tags }}</pre>
                             </li>
                         {% endfor %}
                     </ul>
                 {% else %}
                     <p>No code snippets found.</p>
                 {% endif %}
-            </div>
+                <a class = "link" href="https://docs.python.org/3/tutorial/introduction.html#">An Informal Introduction to Python 🌐</a>
+
+      
         </div>
 
 
