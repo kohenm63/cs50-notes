@@ -52,6 +52,6 @@ List the key features of your app. Use bullet points for clarity.
 
 Specify the license under which your app is released.
 
-[Example: This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.]
+[ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.]
 
 
